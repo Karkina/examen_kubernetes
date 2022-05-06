@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-nico
+  labels:
+    app: redis-nico
+spec:
+  containers:
+    - name: redis-nico
+      image: redis 
+      imagePullPolicy: IfNotPresent

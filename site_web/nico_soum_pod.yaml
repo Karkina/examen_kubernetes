@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nicoredisweb
+  labels:
+    app: nicoredisweb
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nicoredisweb
+  template:
+    metadata:
+      labels:
+        app: nicoredisweb
+    spec:
+      imagePullSecrets:
+        - name : regcred
+      containers:
+        - name: nicoredisbase
+          image: cloud.canister.io:5000/arhturescriou/node-redis
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PORT
+              value: '8080'
+            - name: REDIS_URL
+              value: redis://10.3.121.83:6379

@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nicobaseredis
+  labels:
+    app: nicobaseredis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nicobaseredis
+  template:
+    metadata:
+      labels:
+        app: nicobaseredis
+    spec:
+      containers:
+        - name: nicobaseredis
+          image: redis
+          ports:
+            - containerPort: 6379
+          
