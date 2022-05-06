@@ -8,7 +8,12 @@
 #### Pour cela j'ai crée un fichier .yaml pour mon service qui sera relié au pod avec le port de base de redis (6379), le fichier est nico_soum_deployement. Cependant j'ai eu un problème tout le long de ma création de pod et de service car j'ai utilisé "kind: Deployment" qui je pense a buggé pour un seul réplicat. En changeant avec le format pod c'étais bon.
 
 ## La Deuxième étape a été de créer les pods du site web :
-#### J'ai crée mes pods du service web grâce au fichier nico_soum_pod.yaml. Pour pouvoir faire la connection avec la base de donnée redis, j'ai récupéré l'adresse ip de mon cluster grâce :
+#### J'ai crée mes pods du service web grâce au fichier nico_soum_pod.yaml. Pour récuperer l'image on met l'adresse du registry ou est notre image :
+```
+cloud.canister.io:5000/arhturescriou/node-redis
+```
+
+### Pour pouvoir faire la connection avec la base de donnée redis, j'ai récupéré l'adresse ip de mon cluster grâce :
 
 ```
 kubectl get services
